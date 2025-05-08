@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "308f193a59c8dcf5c05e040422d9310e"
+name = "new-test"
+handle = "new-test-138"
+application_url = "https://tones-net-showing-campaign.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://tones-net-showing-campaign.trycloudflare.com/auth/callback",
+  "https://tones-net-showing-campaign.trycloudflare.com/auth/shopify/callback",
+  "https://tones-net-showing-campaign.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
